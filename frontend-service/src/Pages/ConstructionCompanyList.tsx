@@ -1,8 +1,8 @@
 import React from 'react';
 import {useState} from "react";
 import {useQuery, gql} from '@apollo/client';
-import ConstructionCompany from "./Domain/CostructionCompanyModel";
-import GraphqlEnumType from "./Domain/BaseModel";
+import ConstructionCompany from "../Domain/CostructionCompanyModel";
+import GraphqlEnumType from "../Domain/BaseModel";
 import {Checkbox, Divider, Form, Image, Input, Table, Tag} from "antd";
 
 const GET_CONSTRUCTION_COMPANIES = gql`

@@ -6,3 +6,4 @@
  - Checkbox form could be implemented as table filter to have a better page layout
  - Change matching rules for text search, I have used substring search to have a balance between usability and performances
  - Create a real SPA with a working side menu and so on
+ - Share domain model between BE and FE (also the domain model could be used to create graphql definitions using typegraphql)

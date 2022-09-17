@@ -1,6 +1,9 @@
-import {useQuery, gql} from '@apollo/client';
-import {Checkbox, Collapse, Divider, Form, Image, Input, Row, Table, Tag} from "antd";
+import React from 'react';
 import {useState} from "react";
+import {useQuery, gql} from '@apollo/client';
+import ConstructionCompany from "./Domain/CostructionCompanyModel";
+import GraphqlEnumType from "./Domain/BaseModel";
+import {Checkbox, Divider, Form, Image, Input, Table, Tag} from "antd";
 
 const GET_CONSTRUCTION_COMPANIES = gql`
   query ConstructionCompanies($filters: ConstructionCompanyFilters) {
@@ -34,23 +37,23 @@ const ConstructionCompanyList = () => {
       dataIndex: 'logoUrl',
       key: 'logoUrl',
       width: 64,
-      render: (_, {logoUrl}) => (
-        <Image src={logoUrl} width={64} height={64} ></Image>
+      render: (_: any, item: ConstructionCompany) => (
+        <Image src={item.logoUrl} width={64} height={64} ></Image>
       ),
     },
     {
       title: 'Name',
       dataIndex: 'name',
       key: 'name',
-      render: (_, {name}) => <h2>{name}</h2>
+      render: (_: any, item: ConstructionCompany) => <h2>{item.name}</h2>
     },
     {
       title: 'Specialities',
       dataIndex: 'specialities',
       key: 'specialities',
-      render: (_, {specialities}) => {
-        specialities.slice().sort()
-        return specialities.map(speciality => (
+      render: (_: any, item: ConstructionCompany) => {
+        item.specialities.slice().sort()
+        return item.specialities.map(speciality => (
           <Tag key={speciality} color={selectedSpecialities?.includes(speciality) ? "#265ac9" : ""}>
             {speciality.toLowerCase()}
           </Tag>
@@ -87,7 +90,7 @@ const ConstructionCompanyList = () => {
       <Form.Item name="specialities" label="Available specialities">
         <Checkbox.Group>
           {
-            companySpecialitiesEnum.data.__type.enumValues.map((item) => {
+            companySpecialitiesEnum.data.__type.enumValues.map((item: GraphqlEnumType) => {
               return <Checkbox key={item.name} value={item.name}>{item.name.toLowerCase()}</Checkbox>
             })
           }

@@ -1,10 +1,11 @@
 import React from 'react';
 import ConstructionCompanyList from "./ConstructionCompanyList";
 import {Breadcrumb, Image, Layout, Menu, Typography} from 'antd';
+import {ItemType} from "antd/lib/menu/hooks/useItems";
 const { Header, Content, Footer, Sider } = Layout;
 const {Text} = Typography;
 
-const menuItems = [
+const menuItems: ItemType[] = [
   {
     key: "companies",
     label: "Companies",

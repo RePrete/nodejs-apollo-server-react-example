@@ -1,7 +1,8 @@
-import { ApolloServer, gql } from 'apollo-server-express';
+import {ApolloServer, gql} from 'apollo-server-express';
 import express from 'express';
 import config from 'config';
 import CompaniesDataSource from "./data-sources/CompaniesDataSource";
+import constructionCompanyResolver from "./resolvers/ConstructionCompanyResolver";
 
 export const main = async () => {
   const app = express();
@@ -32,9 +33,7 @@ export const main = async () => {
 
   const resolvers = {
     Query: {
-      ConstructionCompanies: (_parent: any, args: any, context: any, _info: any) => {
-        return context.dataSources.companiesDataSource.get(args.filters);
-      }
+      ...constructionCompanyResolver
     }
   }
 

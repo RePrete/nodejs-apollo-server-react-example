@@ -74,23 +74,23 @@ const mockedData = [
 ];
 
 export default class CompaniesDataSource extends DataSource {
-    get(filters: {
-        name: string | null,
-        specialities: [Speciality] | []
+    get({name, specialities}: {
+        name?: string | null,
+        specialities?: [Speciality] | [] | null
     } = {
         name: null,
-        specialities: []
+        specialities: null
     }): ConstructionCompany[] {
         let result = mockedData;
 
-        if (filters.name) {
-            result = result.filter((rawCompany) => rawCompany.name.toLowerCase().includes(<string>filters.name?.toLowerCase()));
+        if (name) {
+            result = result.filter((rawCompany) => rawCompany.name.toLowerCase().includes(<string>name?.toLowerCase()));
         }
 
         // This will match at least one requested specialty
-        if (filters.specialities && filters.specialities.length > 0) {
+        if (specialities && specialities.length > 0) {
             result = result.filter((rawCompany) => {
-                for (let speciality of filters.specialities) {
+                for (let speciality of specialities) {
                     if (rawCompany.specialities.includes(speciality)) {
                         return true;
                     }

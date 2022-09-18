@@ -1,3 +1,10 @@
+## Start the project
+I always prefer to use docker for local environment.
+To run the application 
+ - run `docker-compose up` from project root folder (ensure ports 3000 and 3010 are free)
+ - navigate [http://localhost:3010](http://localhost:3010/)
+ - click `By specialities` in the left context menu
+
 ## Possible improvements
  - Make the city property an object containing city name, geo and other infos
    - Create a tab to have a map view of the listed companies

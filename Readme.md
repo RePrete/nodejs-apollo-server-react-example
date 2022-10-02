@@ -6,6 +6,7 @@ To run the application
  - click `By specialities` in the left context menu
 
 ## Possible improvements
+ - Move BE host in config file
  - Make the city property an object containing city name, geo and other infos
    - Create a tab to have a map view of the listed companies
  - Paginate query to backend in case of more records

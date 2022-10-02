@@ -1,7 +1,7 @@
 {
   "name": "backend-service",
   "version": "1.0.0",
-  "description": "cosuno challange backend-service",
+  "description": "apollo-server backend-service example",
   "main": "dist/server",
   "scripts": {
     "test": "jest ./test",
